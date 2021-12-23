@@ -1,0 +1,23 @@
+.icon{
+  color:#2296f3;
+  margin-right: 20px;
+}
+.block{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.main-info{
+  display: block;
+  color: #838383;
+  font-size: 18px;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+.header-info{
+  color: #aaaaaa;
+  font-size: 14px;
+}
