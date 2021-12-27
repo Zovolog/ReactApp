@@ -1,0 +1,55 @@
+.point {
+  display: none;
+}
+.bt{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5f6b79;
+  position: relative;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.bt-active {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #5f6b79;
+  position: relative;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  border: 2px solid #3cc070;
+  margin-top: 5px;
+}
+.bt-active::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 5px;
+  height: 11px;
+  border: solid #3cc070;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+  top: 7%;
+  left: 25%;
+  transition: 0.2s;
+}
+.id{
+  font-weight: bold;
+  margin-left: 10px;
+}
+.todo-item{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.todo-name{
+  margin-left: 10px;
+}
+.todo-name-done{
+  text-decoration: line-through;
+  margin-left: 10px;
+}

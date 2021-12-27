@@ -1,8 +1,10 @@
 import React, { useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { BrowserRouter, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Link} from "react-router-dom";
 import { Route } from "react-router-dom";
 import { useRequest } from "../../hooks/useRequest";
+import { Tabs, Tab, TabPanel, TabList } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import {
   faEnvelope,
   faUser,
@@ -29,6 +31,7 @@ export const UserProfile = () => {
   if (isLoading || !user) {
     return <div className="loading-message">Loading...</div>;
   }
+
   return (
     <div className="list">
       <UserInfo text={user.name} title="Name" icon={faUser} />
@@ -54,16 +57,38 @@ export const UserProfile = () => {
         title="Work"
         icon={faBriefcase}
       />
-      <BrowserRouter>
-        <Link to="/user-albums">User Albums</Link>
-        <Link to="/user-posts">User Posts</Link>
-        <Link to={`/user-todos/${userId}`}>User Todos</Link>
-        <Switch>
-          <Route path="/user-albums" component={UserAlbums} />
-          <Route path="/user-posts" component={UserPosts} />
-          <Route path="/user-todos" component={UserTodos} />
-        </Switch>
-      </BrowserRouter>
+      <div className="content">
+        <BrowserRouter>
+          <Tabs>
+            <TabList>
+              <Tab>
+                <Link to={`/user-albums/${userId}`} className="href">
+                  User Albums
+                </Link>
+              </Tab>
+              <Tab>
+                <Link to={`/user-posts/${userId}`} className="href">
+                  User Posts
+                </Link>
+              </Tab>
+              <Tab>
+                <Link to={`/user-todos/${userId}`} className="href">
+                  User Todos
+                </Link>
+              </Tab>
+            </TabList>
+              <TabPanel>
+                <Route path="/user-albums/:userId" component={UserAlbums} />
+              </TabPanel>
+              <TabPanel>
+                <Route path="/user-posts/:userId" component={UserPosts} />
+              </TabPanel>
+              <TabPanel>
+                <Route path="/user-todos/:userId" component={UserTodos} />
+              </TabPanel>
+          </Tabs>
+        </BrowserRouter>
+      </div>
     </div>
   );
 };
