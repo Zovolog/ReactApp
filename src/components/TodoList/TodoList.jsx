@@ -17,13 +17,13 @@ export const TodoList = () => {
     setData(newData);
   };
 
-  const addNewPost = (values, item, id) => {
-    const newPost = {
+  const addNewTask = (values, item, id) => {
+    const newTask = {
       id: data.length + 1,
       title: values.taskName,
       completed: false,
     };
-    setData([...data, newPost]);
+    setData([...data, newTask]);
   };
 
   if (isLoading) {
@@ -32,7 +32,7 @@ export const TodoList = () => {
 
   return (
     <ul>
-      <form onSubmit={handleSubmit(addNewPost)}>
+      <form onSubmit={handleSubmit(addNewTask)}>
         <input {...register("taskName")} />
         <Button type="submit">Add</Button>
       </form>
